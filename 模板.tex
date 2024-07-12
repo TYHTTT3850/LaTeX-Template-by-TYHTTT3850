@@ -1,0 +1,172 @@
+\documentclass[a4paper,AutoFakeBold]{ctexart} %纸张大小A4，文本类型为ctexart
+%--------------------导言区：加载宏包，改变全局设置等--------------------%
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}
+%超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
+\usepackage{amsmath}%数学宏包1
+\usepackage{amssymb}%数学宏包2
+\usepackage{arydshln}%分块矩阵宏包
+\usepackage{fontspec}%字体设置宏包
+\usepackage{booktabs}%三线表宏包
+\usepackage{array}%表格宏包
+\usepackage{caption}%表名设置宏包
+\usepackage{graphicx}%图片宏包
+\usepackage[left=2.5cm,right=1.97cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距设置
+\DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
+\captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
+\setmainfont{Times New Roman}%英文设置为Times New Roman
+\renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
+\pagestyle{empty}%页眉设置为空
+\ctexset{section={format={\heiti \zihao{3} \bfseries}},
+	subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
+	subsubsection={format={\kaishu \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
+%---------------------------------------------------------------------%
+\title{\heiti \zihao{2}\LaTeX 自制模板}%题目，黑体字，二号大小
+\author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
+\date{2024/7/11}%日期
+%-----------------------------正文开始---------------------------------%
+\begin{document}%开始
+\maketitle%加上此指令才会显示文章标题，作者，日期
+\vspace{-10pt}%减少作者与标题的间距
+\newpage
+\begin{center}
+	\tableofcontents%生成目录并居中，目录往往要编译两次才会正确显示
+\end{center}
+\newpage
+\begin{center}
+	\addcontentsline{toc}{section}{摘要}%将附录A添加到目录中
+	\section*{摘要}
+\end{center}
+
+此处是摘要，换行用双反斜杠或者空一行，双反斜杠换行没有首行缩进，空一行换行有首行缩进，也就是分段操作。\\
+\heiti 关键词：\songti 关键词1，关键词2
+\newpage
+\section{第一节一级标题}%第一节一级标题
+\songti \zihao{-4} 内容1%设置正文部分字体为宋体，小四大小
+\subsection{第一节二级标题} \label{第一节二级标题}
+内容1.1
+\subsubsection{第一节三级标题}
+内容1.1.1
+\subsection{假设}
+(1)假设一：
+
+(2)假设二：
+\section{第二节一级标题}
+内容2
+\subsection{第二节二级标题}
+内容2.1
+\subsubsection{第二节三级标题}
+内容2.1.1
+\subsection{第二节二级标题}
+内容2.2
+\section{图片插入}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.65\linewidth]{Cut_Method_Glass}
+	\caption{图名}\label{图名}
+\end{figure}
+\section{表格插入}
+\begin{table}[htbp]%h:here当前位置,t:top页面顶部,b:bottom页面底部,p:page另放一页
+	\caption{表名}\label{表名}
+	\centering
+	\begin{tabular}{p{3cm}<{\centering} p{3cm}<{\centering} p{3cm}<{\centering} p{3cm}<{\centering}}
+		%p{3cm}规定列宽，\centering规定剧中对其
+		\toprule[1.5pt]
+		1&2&3&4\\
+		\midrule[0.75pt]
+		内容&内容&内容&内容\\
+		内容&内容&内容&内容\\
+		内容&内容&内容&内容\\
+		\bottomrule[1pt]
+	\end{tabular}
+\end{table}
+\section{数学公式}
+\subsection{行内公式}
+行内公式，$a+b=c$，希腊字母$\alpha\beta\gamma$，定积分$\int_{a}^{b} f(x)dx$，不定积分$\int f(x)dx$，
+\subsection{行间公式}
+\begin{equation}
+	S_{n}=\sum_{k=1}^{n} x_{k} \label{(1)}
+\end{equation}
+\begin{equation}
+	\alpha\left( x+y\right) =z
+\end{equation}
+方程组：
+\begin{equation}
+	\begin{cases}
+		x_{1}^{2}+y_{1}^2=a\\
+		x_{1}-y_{1}=b\\
+		x_{1}+y_{1}=c
+	\end{cases}
+\end{equation}
+分段函数：
+\begin{equation}
+	f(x)=
+	\begin{cases}
+		f_{1}(x) &x>a\\
+		f_{2}(x) &x<=a
+	\end{cases}
+\end{equation}
+长公式：
+\begin{equation}
+	\begin{split}
+		f(x)&=1000000a+2000000b+30000c+400000d\\
+		&=1000000\alpha+200000\beta+3000000\gamma+40000\delta\\
+		&=\zeta+\eta+\theta+\lambda
+	\end{split}
+\end{equation}
+矩阵：
+\begin{equation}
+	\left[ 
+	\begin{array}{c}
+		\varphi\\
+		\theta\\
+		\psi
+	\end{array}\right] =
+	\left[
+	\begin{array}{ccc}
+		a_{11}&a_{12}&a_{13}\\
+		a_{21}&a_{22}&a_{23}\\
+		a_{31}&a_{32}&a_{33}
+	\end{array}\right] 
+	\left[\begin{array}{c}
+		x_{1}\\
+		x_{2}\\
+		x_{3} 
+	\end{array}\right] 
+\end{equation}
+高维矩阵：
+\begin{equation}
+	\left[ \begin{array}{cccc}
+		a_{11}&a_{12}&\cdots&a_{1n}\\
+		a_{21}&a_{22}&\cdots&a_{2n}\\
+		\vdots&\vdots&{}&\vdots\\
+		a_{n1}&a_{n2}&\cdots&a_{nn}
+	\end{array}\right] 
+\end{equation}
+%-------------------------------参考文献-----------------------------%
+\begin{thebibliography}{99}
+	\addcontentsline{toc}{section}{参考文献}%将参考文献添加到目录中
+	\bibitem{参考文献1}这是参考文献1
+	
+	\bibitem{参考文献2}这是参考文献2
+	
+	\bibitem{参考文献3}这是参考文献3
+\end{thebibliography}
+%--------------------------------附录--------------------------------%
+\section*{附录A}
+\addcontentsline{toc}{section}{附录A}%将附录A添加到目录中
+外部网址链接：\url{www.bing.com}
+
+文内交叉引用测试：\ref{第一节二级标题}
+
+公式引用测试\ref{(1)}
+
+脚注测试\footnote{这是脚注}
+
+表格引用测试 表\ref{表名}
+
+图片引用测试 图\ref{图名}
+
+参考文献测试\textsuperscript{\cite{参考文献1}}
+
+参考文献测试\textsuperscript{\cite{参考文献1}\cite{参考文献2}}
+\end{document}%结束
