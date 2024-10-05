@@ -1,4 +1,4 @@
-\documentclass[a4paper,AutoFakeBold]{ctexart} %纸张大小A4，文本类型为ctexart
+\documentclass[a4paper,AutoFakeBold={2.7}]{ctexart} %纸张大小A4，文本类型为ctexart
 %--------------------导言区：加载宏包，改变全局设置等--------------------%
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black]{hyperref}
 %超链接宏包,消除外部网址链接，文内交叉引用链接，参考文献引用链接的方框，且将字色改为黑
@@ -10,15 +10,17 @@
 \usepackage{array}%表格宏包
 \usepackage{caption}%题注设置宏包
 \usepackage{graphicx}%图片宏包
+\usepackage{subfig}%子图宏包
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距设置
+\usepackage{wrapfig}%图片文字环绕宏包
 \DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
 \captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
 \setmainfont{Times New Roman}%英文设置为Times New Roman
 \renewcommand{\baselinestretch}{1.25}%改变默认行距为1.25倍行距
-\pagestyle{empty}%页眉设置为空
+\pagestyle{plain}%没有页眉，页脚包含页码
 \ctexset{section={format={\heiti \zihao{3} \bfseries}},
 	subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
-	subsubsection={format={\kaishu \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
+	subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
 %---------------------------------------------------------------------%
 \title{\heiti \zihao{2}\LaTeX 自制模板}%题目，黑体字，二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
