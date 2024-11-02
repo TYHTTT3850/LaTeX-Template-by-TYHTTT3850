@@ -13,6 +13,8 @@
 \usepackage{subfig}%子图宏包
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%页边距设置
 \usepackage{wrapfig}%图片文字环绕宏包
+\usepackage{listings}%代码高亮宏包
+\usepackage{xcolor}%颜色处理宏包
 \DeclareCaptionFont{heiti}{\heiti}%为caption宏包定义heiti命令
 \captionsetup{labelsep=space,font={small,bf,heiti},skip=5pt}%题注设置
 \setmainfont{Times New Roman}%英文设置为Times New Roman
@@ -21,6 +23,18 @@
 \ctexset{section={format={\heiti \zihao{-3} \bfseries}},
 	subsection={format={\heiti \zihao{4} \bfseries},beforeskip=0pt,afterskip=0pt},
 	subsubsection={format={\heiti \zihao{-4} \bfseries},beforeskip=0pt,afterskip=0pt}} %section样式设置
+
+\lstset{
+    language=Python,       % 设置语言为 Python
+    basicstyle=\ttfamily,  % 基本样式
+    keywordstyle=\color{blue},  % 关键字颜色
+    commentstyle=\color{gray},  % 注释颜色
+    stringstyle=\color{red},    % 字符串颜色
+    numbers=left,        % 显示行号
+    numberstyle=\tiny,   % 行号字体
+    frame=single,        % 给代码加上边框
+    breaklines=true      % 自动换行
+    }
 %---------------------------------------------------------------------%
 \title{\heiti \zihao{2}\LaTeX 自制模板}%题目，黑体字，二号大小
 \author{\kaishu \zihao{-4}TYH\\ \songti \zihao{-5} 此处是作者简介:Ningbo University,226002262,major in mathmatic and applied mathmatic}%作者，楷体字，小四大小，作者简介宋体字，小五大小
