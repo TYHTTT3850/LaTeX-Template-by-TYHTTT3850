@@ -84,6 +84,10 @@
 	\caption{图名}\label{图名}
 \end{figure}
 \section{表格插入}
+表格有普通的单页表格和长度较大的跨页表格
+\subsection{单页表格}
+首先展示单页表格：
+
 \begin{table}[htbp]%h:here当前位置,t:top页面顶部,b:bottom页面底部,p:page另放一页
 	\caption{表名}\label{表名}
 	\centering
@@ -98,6 +102,53 @@
 		\bottomrule[1pt]
 	\end{tabular}
 \end{table}
+
+\subsection{跨页表格}
+展示跨页表格：
+
+\begin{longtable}{p{4cm}<{\centering} p{4cm}<{\centering} p{4cm}<{\centering}}
+    \caption{数据缺失值统计表}\label{数据缺失值统计表} \\
+    
+    \toprule
+    列名 & 非空单元格数量 & 数据类型 \\
+    \midrule
+    \endfirsthead %这之前的内容是第一页表格的表头
+
+    \toprule
+    列名 & 非空单元格数量 & 数据类型 \\
+    \midrule
+    \endhead %这之前的内容是跨页后表格的表头
+
+    \bottomrule
+    \multicolumn{3}{r}{\textit{接下页}} %可以在最后一页之前表格的表尾加上“接下页”提示，“3”对应表格列数，“r”表示右对齐
+    \endfoot %这之前的内容是最后一页之前表格的表尾
+
+    \bottomrule
+    \endlastfoot %这之前的内容是最后一页表格的表尾
+	
+    customerID & 7043 & object \\
+    gender & 7043 & object \\
+    SeniorCitizen & 7043 & int64 \\
+    Partner & 7043 & object \\
+    Dependents & 7043 & object \\
+    tenure & 7043 & int64 \\
+    PhoneService & 7043 & object \\
+    MultipleLines & 7043 & object \\
+    InternetService & 7043 & object \\
+    OnlineSecurity & 7043 & object \\
+    OnlineBackup & 7043 & object \\
+    DeviceProtection & 7043 & object \\
+    TechSupport & 7043 & object \\
+    StreamingTV & 7043 & object \\
+    StreamingMovies & 7043 & object \\
+    Contract & 7043 & object \\
+    PaperlessBilling & 7043 & object \\
+    PaymentMethod & 7043 & object \\
+    MonthlyCharges & 7043 & float64 \\
+    TotalCharges & 7043 & object \\
+    Churn & 7043 & object \\
+\end{longtable}
+
 \section{数学公式}
 \subsection{行内公式}
 行内公式，$a+b=c$，希腊字母$\alpha\beta\gamma$，定积分$\int_{a}^{b} f(x)dx$，不定积分$\int f(x)dx$，
